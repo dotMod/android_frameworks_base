@@ -3546,7 +3546,7 @@ public class PackageManagerService extends IPackageManager.Stub
                                         | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);
                     }
                 }
-                ver.fingerprint = Build.DOT_FINGERPRINT;
+                ver.fingerprint = Build.DATE;
             }
 
             // Legacy existing (installed before Q) non-system apps to hide
@@ -3975,7 +3975,7 @@ public class PackageManagerService extends IPackageManager.Stub
         // feature flags should cause us to invalidate any caches.
         final String cacheName = FORCE_PACKAGE_PARSED_CACHE_ENABLED ? "debug"
                 : SystemProperties.digestOf(
-                        "ro.build.fingerprint",
+                        "ro.build.date",
                         StorageManager.PROP_ISOLATED_STORAGE,
                         StorageManager.PROP_ISOLATED_STORAGE_SNAPSHOT
                 );
@@ -22696,7 +22696,7 @@ public class PackageManagerService extends IPackageManager.Stub
                     Slog.w(TAG, "Failed to scan " + ps.codePath + ": " + e.getMessage());
                 }
 
-                if (!Build.DOT_FINGERPRINT.equals(ver.fingerprint)) {
+                if (!Build.DATE.equals(ver.fingerprint)) {
                     clearAppDataLIF(ps.pkg, UserHandle.USER_ALL, FLAG_STORAGE_DE | FLAG_STORAGE_CE
                             | FLAG_STORAGE_EXTERNAL | Installer.FLAG_CLEAR_CODE_CACHE_ONLY
                             | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);

@@ -358,7 +358,7 @@ public final class Settings {
         public void forceCurrent() {
             sdkVersion = Build.VERSION.SDK_INT;
             databaseVersion = CURRENT_DATABASE_VERSION;
-            fingerprint = Build.DOT_FINGERPRINT;
+            fingerprint = Build.DATE;
         }
     }
 
@@ -3144,7 +3144,7 @@ public final class Settings {
         // on update drop the files before loading them.
         if (PackageManagerService.CLEAR_RUNTIME_PERMISSIONS_ON_UPGRADE) {
             final VersionInfo internal = getInternalVersion();
-            if (!Build.DOT_FINGERPRINT.equals(internal.fingerprint)) {
+            if (!Build.DATE.equals(internal.fingerprint)) {
                 for (UserInfo user : users) {
                     mRuntimePermissionsPersistence.deleteUserRuntimePermissionsFile(user.id);
                 }
