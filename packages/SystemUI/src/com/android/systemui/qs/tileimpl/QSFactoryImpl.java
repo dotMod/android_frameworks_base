@@ -45,6 +45,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
+import com.android.systemui.qs.tiles.LteTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
@@ -104,6 +105,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<PowerMenuTile> mPowerMenuTileProvider;
+    private final Provider<LteTile> mLteTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -141,7 +143,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AntiFlickerTile> antiFlickerTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VpnTile> vpnTileProvider,
-            Provider<PowerMenuTile> powerMenuTileProvider) {
+            Provider<PowerMenuTile> powerMenuTileProvider,
+            Provider<LteTile> lteTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -176,6 +179,7 @@ public class QSFactoryImpl implements QSFactory {
         mUsbTetherTileProvider = usbTetherTileProvider;
         mVpnTileProvider = vpnTileProvider;
         mPowerMenuTileProvider = powerMenuTileProvider;
+        mLteTileProvider = lteTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -253,6 +257,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mVpnTileProvider.get();
             case "powermenu":
                 return mPowerMenuTileProvider.get();
+            case "lte":
+                return mLteTileProvider.get();
         }
 
         // Custom tiles
