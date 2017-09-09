@@ -5642,6 +5642,12 @@ public final class Settings {
         public static final String DATA_DISABLED_ICON = "data_disabled_icon";
 
         /**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+
+        /**
          * @hide
          */
         public static final String WFD_LEGACY_VIDEO_MODE = "wfd_legacy_video_mode";
