@@ -293,5 +293,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NETWORK_TRAFFIC_AUTOHIDE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NETWORK_TRAFFIC_UNIT_TYPE, new InclusiveIntegerRangeValidator(0, 1));
         VALIDATORS.put(System.PROXIMITY_ON_WAKE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.USE_OLD_MOBILETYPE, BOOLEAN_VALIDATOR);
     }
 }

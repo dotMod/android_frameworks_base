@@ -92,5 +92,6 @@ public class SystemSettings {
         Settings.System.DOT_BUCKET_OVERLAY,
         Settings.System.LOCKSCREEN_MEDIA_METADATA,
         Settings.System.PROXIMITY_ON_WAKE,
+        Settings.System.USE_OLD_MOBILETYPE,
     };
 }
