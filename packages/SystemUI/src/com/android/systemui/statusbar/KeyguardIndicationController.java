@@ -525,7 +525,7 @@ public class KeyguardIndicationController implements StateListener,
                     : R.string.keyguard_plugged_in_wireless;
         }
 
-        String batteryInfo = percentage + " - ";
+        String batteryInfo = "";
         boolean showbatteryInfo = Settings.System.getIntForUser(mContext.getContentResolver(),
             Settings.System.LOCKSCREEN_BATTERY_INFO, 1, UserHandle.USER_CURRENT) == 1;
 
@@ -555,17 +555,21 @@ public class KeyguardIndicationController implements StateListener,
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, mChargingTimeRemaining);
             try {
-                return mContext.getResources().getString(chargingId, chargingTimeFormatted,
-                        batteryInfo);
+                String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted,
+                        percentage);
+                return chargingText + batteryInfo;
             } catch (IllegalFormatConversionException e) {
-                return mContext.getResources().getString(chargingId, chargingTimeFormatted);
+                String chargingText =  mContext.getResources().getString(chargingId, chargingTimeFormatted);
+                return chargingText + batteryInfo;
             }
         } else {
             // Same as above
             try {
-                return mContext.getResources().getString(chargingId, batteryInfo);
+                String chargingText =  mContext.getResources().getString(chargingId, percentage);
+                return chargingText + batteryInfo;
             } catch (IllegalFormatConversionException e) {
-                return mContext.getResources().getString(chargingId);
+                String chargingText =  mContext.getResources().getString(chargingId);
+                return chargingText + batteryInfo;
             }
         }
     }
