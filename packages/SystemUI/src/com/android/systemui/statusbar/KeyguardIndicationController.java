@@ -112,7 +112,7 @@ public class KeyguardIndicationController implements StateListener,
     private double mChargingVoltage;
     private int mChargingWattage;
     private int mBatteryLevel;
-    private int mTemperature;
+    private float mTemperature;
     private boolean mBatteryPresent = true;
     private long mChargingTimeRemaining;
     private float mDisclosureMaxAlpha;
