@@ -149,6 +149,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
 
     private final Context mContext;
     private final OverviewProxyService mOverviewProxyService;
+    private final SysUiState mSysUiState;
     private final Runnable mStateChangeCallback;
 
     private final PluginManager mPluginManager;
@@ -240,14 +241,22 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
                 }
             };
 
+    private final SysUiState.SysUiStateCallback mSysUiStateCallback =
+            new SysUiState.SysUiStateCallback() {
+        @Override
+        public void onSystemUiStateChanged(int sysUiFlags) {
+            mSysUiFlags = sysUiFlags;
+        }
+    };
+
     public EdgeBackGestureHandler(Context context, OverviewProxyService overviewProxyService,
-            SysUiState sysUiFlagContainer, PluginManager pluginManager,
-            Runnable stateChangeCallback) {
+            SysUiState sysUiState, PluginManager pluginManager, Runnable stateChangeCallback) {
         super(Dependency.get(BroadcastDispatcher.class));
         mContext = context;
         mDisplayId = context.getDisplayId();
         mMainExecutor = context.getMainExecutor();
         mOverviewProxyService = overviewProxyService;
+        mSysUiState = sysUiState;
         mPluginManager = pluginManager;
         mStateChangeCallback = stateChangeCallback;
         ComponentName recentsComponentName = ComponentName.unflattenFromString(
@@ -280,7 +289,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
                 mContext.getMainThreadHandler(), mContext, this::onNavigationSettingsChanged);
 
         updateCurrentUserResources();
-        sysUiFlagContainer.addCallback(sysUiFlags -> mSysUiFlags = sysUiFlags);
     }
 
     public void updateCurrentUserResources() {
@@ -336,6 +344,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
         mIsAttached = true;
         Dependency.get(ProtoTracer.class).add(this);
         mOverviewProxyService.addCallback(mQuickSwitchListener);
+        mSysUiState.addCallback(mSysUiStateCallback);
         updateIsEnabled();
         startTracking();
     }
@@ -347,6 +356,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
         mIsAttached = false;
         Dependency.get(ProtoTracer.class).remove(this);
         mOverviewProxyService.removeCallback(mQuickSwitchListener);
+        mSysUiState.removeCallback(mSysUiStateCallback);
         updateIsEnabled();
         stopTracking();
     }
