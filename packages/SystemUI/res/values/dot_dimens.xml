@@ -81,4 +81,6 @@
     <dimen name="qs_media_action_button_size">48dp</dimen>
 
     <dimen name="screenrecord_dot_size">48dp</dimen>
+
+    <dimen name="volume_row_app_icon_padding">12dp</dimen>
 </resources>
