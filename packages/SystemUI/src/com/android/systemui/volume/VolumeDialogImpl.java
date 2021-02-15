@@ -202,6 +202,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     // Volume panel placement left or right
     private boolean mVolumePanelOnLeft;
 
+    private boolean mIsTracking = false;
     private class CustomSettingsObserver extends ContentObserver {
         CustomSettingsObserver(Handler handler) {
             super(handler);
@@ -1035,6 +1036,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     protected void dismissH(int reason) {
+        // don't dismiss while still tracking touch
+        if (mIsTracking) {
+            return;
+        }
         if (D.BUG) {
             Log.d(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
                     + " from: " + Debug.getCaller());
@@ -1742,6 +1747,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             if (D.BUG) Log.d(TAG, "onStopTrackingTouch"+ " " + mRow.stream);
+            mIsTracking = false;
+            rescheduleTimeoutH();
             mRow.tracking = false;
             if (mRow.isAppVolumeRow) return;
             mRow.userAttempt = SystemClock.uptimeMillis();
