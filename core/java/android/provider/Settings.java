@@ -5499,6 +5499,21 @@ public final class Settings {
         public static final String EDGE_GESTURE_Y_DEAD_ZONE = "edge_gesture_y_dead_zone";
 
         /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF = "smart_cutoff";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF_TEMPERATURE = "smart_cutoff_temperature";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF_RESUME_TEMPERATURE = "smart_cutoff_resume_temperature";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
