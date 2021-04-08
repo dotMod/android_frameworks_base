@@ -4036,11 +4036,10 @@ public final class Settings {
         public static final String ADAPTIVE_SLEEP = "adaptive_sleep";
 
         /**
-         * Indicates whether we should only show the app lock view when the device is woken up
-         * Or always.
+         * APP_LOCK_LOCK_AFTER key for user selected app lock timeout
          * @hide
          */
-        public static final String APP_LOCK_SHOW_ONLY_ON_WAKE = "app_lock_show_only_on_wake";
+        public static final String APP_LOCK_LOCK_AFTER = "applock_lock_after";
 
         /**
          * Control whether the process CPU usage meter should be shown.
