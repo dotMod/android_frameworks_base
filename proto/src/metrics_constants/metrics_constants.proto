@@ -7445,6 +7445,12 @@ message MetricsEvent {
     // Panel for Bluetooth
     PANEL_BLUETOOTH = 2003;
 
+
+
+    // Evolution X
+    DOT = 1999;
+    DOT_SETTINGS = 2000;
+    DOT_QS_TILES = 2001;
   }
 }
 
