@@ -7444,6 +7444,9 @@ message MetricsEvent {
     PANEL_MOBILE_DATA = 2002;
     // Panel for Bluetooth
     PANEL_BLUETOOTH = 2003;
+    
+    // dotOS Fan Edition Settings constant
+    DOTFE_SETTINGS = 1999;
 
 
 
