@@ -3970,6 +3970,12 @@ public final class Settings {
         public static final String PEAK_REFRESH_RATE = "peak_refresh_rate";
 
         /**
+         * Whether refresh rate should be switched to 60Hz on power save mode.
+         * @hide
+         */
+        public static final String LOW_POWER_REFRESH_RATE = "low_power_rr_switch";
+
+        /**
          * The amount of time in milliseconds before the device goes to sleep or begins
          * to dream after a period of inactivity.  This value is also known as the
          * user activity timeout period since the screen isn't necessarily turned off
@@ -5483,12 +5489,6 @@ public final class Settings {
         public static final String INCALL_FEEDBACK_VIBRATE = "incall_feeedback_vibrate";
 
         /**
-         * Whether StatusBar icons should use app icon
-         * @hide
-         */
-        public static final String STATUSBAR_ICONS_STYLE = "statusbar_icons_style";
-
-        /**
          * Whether to display 4G icon instead LTE
          * @hide
          */
@@ -5692,7 +5692,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
-            PRIVATE_SETTINGS.add(STATUSBAR_ICONS_STYLE);
         }
 
         /**
