@@ -128,9 +128,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ReadingModeTile> readingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<SoundTile> soundTileProvider,
-            Provider<AntiFlickerTile> antiFlickerTileProvider) {
-            Provider<UsbTetherTile> usbTetherTileProvider,
-            Provider<VolumeTile> volumeTileProvider) {
+            Provider<AntiFlickerTile> antiFlickerTileProvider,
+            Provider<UsbTetherTile> usbTetherTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
