@@ -5565,6 +5565,12 @@ public final class Settings {
         public static final String GAMING_MODE_MANUAL_BRIGHTNESS_TOGGLE = "gaming_mode_manual_brightness_toggle";
 
         /**
+         * Enable/Disable screenshot sound
+         * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /**
          * Whether to automatically enable the gaming mode
          * if the launched app is a game
          * @hide
@@ -5793,6 +5799,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
             PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
             PRIVATE_SETTINGS.add(SHOW_FOURG);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
         }
 
         /**
