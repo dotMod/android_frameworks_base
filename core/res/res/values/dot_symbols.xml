@@ -170,4 +170,16 @@
 
    <!-- Whether doze feature is enabled by default in settings -->
    <java-symbol type="bool" name="config_dozeDefaultEnabled" />
+
+   <!-- Smart charging -->
+   <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+   <java-symbol type="integer" name="config_smartChargingBatteryResumeLevel" />
+   <java-symbol type="string" name="config_SmartChargingSysfsNode" />
+   <java-symbol type="string" name="config_SmartChargingSuspendValue" />
+   <java-symbol type="string" name="config_SmartChargingResumeValue" />
+
+     <!-- Smart cutoff temperature -->
+     <java-symbol type="integer" name="config_smartCutoffTemperature" />
+     <java-symbol type="integer" name="config_smartCutoffResumeTemperature" />
+
 </resources>

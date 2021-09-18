@@ -5571,6 +5571,41 @@ public final class Settings {
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
 
         /**
+         * @hide
+         */
+        public static final String SMART_CHARGING = "smart_charging";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESET_STATS = "smart_charging_reset_stats";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF = "smart_cutoff";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF_TEMPERATURE = "smart_cutoff_temperature";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CUTOFF_RESUME_TEMPERATURE = "smart_cutoff_resume_temperature";
+
+        /**
          * Whether to automatically enable the gaming mode
          * if the launched app is a game
          * @hide
