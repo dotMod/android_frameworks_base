@@ -1514,7 +1514,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 row.slider.setProgress(newProgress, true);
             }
         }
-        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replace("%", "").replace(" ", ""));
+        int percentage = Integer.parseInt(Utils.formatPercentage((enable && !row.ss.muted) ? vlevel : 0, row.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
         if (percentage >= 20)
             row.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
         else {
@@ -1747,7 +1747,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             }
             final int userLevel = getImpliedLevel(seekBar, progress);
             if (mRow.ss.level == (mRow.ss.levelMin + 1) && userLevel <= mRow.ss.level) {
-                int percentage = Integer.parseInt(Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax).replace("%", ""));
+                int percentage = Integer.parseInt(Utils.formatPercentage(mRow.ss.levelMin + 1, mRow.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
                 if (percentage >= 20)
                     mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
                 else {
@@ -1760,7 +1760,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 seekBar.setProgress((mRow.ss.levelMin + 1) * 100);
                 return;
             }
-            int percentage = Integer.parseInt(Utils.formatPercentage(userLevel, mRow.ss.levelMax).replace("%", ""));
+            int percentage = Integer.parseInt(Utils.formatPercentage(userLevel, mRow.ss.levelMax).replaceAll("[^a-zA-Z0-9]", ""));
             if (percentage >= 20)
                 mRow.icon.setImageTintList(ColorStateList.valueOf(mContext.getResources().getColor(android.R.color.monet_background_device_default, mContext.getTheme())));
             else {
