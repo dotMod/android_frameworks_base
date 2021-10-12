@@ -57,6 +57,8 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.content.ReferrerIntent;
 
+import com.android.internal.gmshooks.AttestationHooks;
+
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -1161,6 +1163,7 @@ public class Instrumentation {
         app.attach(context);
         String packageName = app.getPackageName();
         PixelPropsUtils.setProps(packageName);
+        AttestationHooks.initApplicationBeforeOnCreate(app);
         return app;
     }
     
@@ -1180,6 +1183,7 @@ public class Instrumentation {
         app.attach(context);
         String packageName = app.getPackageName();
         PixelPropsUtils.setProps(packageName);
+        AttestationHooks.initApplicationBeforeOnCreate(app);
         return app;
     }
 
