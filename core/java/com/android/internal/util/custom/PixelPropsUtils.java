@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.crdroid;
+package com.android.internal.util.custom;
 
 import android.app.Application;
 import android.os.Build;
@@ -49,7 +49,7 @@ public class PixelPropsUtils {
     };
 
     private static final String[] packagesToChangePixel6 = {
-            "com.google.android.gms"
+B            "com.google.android.gms"
     };
 
     private static final String[] packagesToChangePixelXL = {
