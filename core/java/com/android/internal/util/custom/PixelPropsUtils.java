@@ -18,6 +18,7 @@
 package com.android.internal.util.crdroid;
 
 import android.os.Build;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.lang.reflect.Field;
@@ -31,6 +32,9 @@ public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
+
+    private static final String PRODUCT_SPOOF_FINGERPRINT =
+            SystemProperties.get("ro.build.spoof_fingerprint");
 
     private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePixel5;
@@ -151,6 +155,16 @@ public class PixelPropsUtils {
 
     public static void setProps(String packageName) {
         if (packageName == null) {
+            return;
+        }
+        final String patchCrDroid = Build.VERSION.SECURITY_PATCH_CRDROID;
+        if (!"".equals(patchCrDroid)) {
+            if (PRODUCT_SPOOF_FINGERPRINT.length() > 0) {
+                if (packageName.equals("com.google.android.gms")) {
+                    sIsGms = true;
+                    setPropValue("FINGERPRINT", PRODUCT_SPOOF_FINGERPRINT);
+                }
+            }
             return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
