@@ -9113,7 +9113,7 @@ public class AudioService extends IAudioService.Stub
                 }
             }
             return pids;
-        } catch (RemoteException | RuntimeException e) {
+        } catch (RemoteException e) {
             return new HashSet<Integer>();
         }
     }
