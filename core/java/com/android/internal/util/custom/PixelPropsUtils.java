@@ -49,7 +49,7 @@ public class PixelPropsUtils {
     };
 
     private static final String[] packagesToChangePixel6 = {
-B            "com.google.android.gms"
+            "com.google.android.gms"
     };
 
     private static final String[] packagesToChangePixelXL = {
@@ -158,8 +158,8 @@ B            "com.google.android.gms"
         if (packageName == null) {
             return;
         }
-        final String patchCrDroid = Build.VERSION.SECURITY_PATCH_CRDROID;
-        if (!"".equals(patchCrDroid)) {
+        final String patchDotOS = Build.VERSION.SECURITY_PATCH_DOTOS;
+        if (!"".equals(patchDotOS)) {
             if (PRODUCT_SPOOF_FINGERPRINT.length() > 0) {
                 if (packageName.equals("com.google.android.gms")) {
                     final String processName = Application.getProcessName();
